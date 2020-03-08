@@ -4,4 +4,4 @@
 [![GitHub commit](https://img.shields.io/github/last-commit/fmossott/COVID19)](https://img.shields.io/github/last-commit/fmossott/COVID19)
 
 
-Progetto per integrare i dati del Dipartimento della Protezione Civile con i dati a partire dal 19 Febbraio
+Progetto per integrare i dati del Dipartimento della Protezione Civile con i dati a partire dal 19 Febbraio: https://github.com/pcm-dpc/COVID-19
