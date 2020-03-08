@@ -1,0 +1,4 @@
+data,stato,codice_regione,denominazione_regione,lat,long,ricoverati_con_sintomi,terapia_intensiva,totale_ospedalizzati,isolamento_domiciliare,totale_attualmente_positivi,nuovi_attualmente_positivi,dimessi_guariti,deceduti,totale_casi,tamponi
+2020-02-21 18:00:00,ITA,03,Lombardia,45.46679409,9.190347404,,5,,,15,,0,1,16,
+2020-02-21 18:00:00,ITA,05,Veneto,45.43490485,12.33845213,,,,,2,,0,0,2,
+2020-02-21 18:00:00,ITA,12,Lazio,41.89277044,12.48366722,,1,,,2,,1,0,3,
