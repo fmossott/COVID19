@@ -30,4 +30,12 @@ mergetime=`date -Iseconds -u`
 banner "Committing to 'Merge $mergetime'"
 git commit -a -m "Merge $mergetime"
 
-git push
+if git diff-index --quiet HEAD --; then
+  echo No changes to push
+else
+  echo Changes to push
+  git push
+  if [ -f refresh.sh ]; then
+    refresh.sh
+  fi
+fi
