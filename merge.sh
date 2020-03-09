@@ -27,7 +27,7 @@ git submodule update --recursive --remote
 ./combine.sh
 
 if [[ `git status --porcelain` ]]; then
-  echo Changes to push
+  echo Changes to commit
   mergetime=`date -Iseconds -u` 
   banner "Committing to 'Merge $mergetime'"
   git commit -a -m "Merge $mergetime"
