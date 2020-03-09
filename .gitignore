@@ -16,6 +16,6 @@
 .DS_Store
 Thumbs.db
 
-# Changelog test
-changelog.txt
+# working or private files
+*.md5
 refresh.sh
