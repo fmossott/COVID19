@@ -23,23 +23,15 @@ git submodule init
 git pull --recurse-submodules
 git submodule update --recursive --remote
 
-md5sum combined/* > combined.md5
-
 # Combine reginonal data
 ./combine.sh
 
-md5sum --check combined.md5
-
-if [ $? ]; then
-  echo Combined has not changed
-else
+if [[ `git status --porcelain` ]]; then
+  echo Changes to push
   mergetime=`date -Iseconds -u` 
   banner "Committing to 'Merge $mergetime'"
   git commit -a -m "Merge $mergetime"
-fi
 
-if [[ `git status --porcelain` ]]; then
-  echo Changes to push
   git push
   if [ -f refresh.sh ]; then
     refresh.sh
