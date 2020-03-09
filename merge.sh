@@ -37,5 +37,5 @@ if [[ `git status --porcelain` ]]; then
     refresh.sh
   fi
 else
-  echo No changes to push
+  echo No changes to commit
 fi
