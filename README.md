@@ -7,4 +7,4 @@ Progetto per integrare i dati del Dipartimento della Protezione Civile con i dat
 
 ## DataStudio
 
-These data are used as source for the charts on http://bit.ly/CoronaVirusItaliaDataStudio
+These data are used as source for the charts on http://bit.ly/CoronaVirusItaliaDataStudio after a preprocessing in the spreadsheet at http://bit.ly/CoronaVirusItalia
