@@ -7,9 +7,7 @@ function fail {
 
 cd `dirname $0`
 
-./common
-
-./check_submodule.sh
+. ./common
 
 # Merge pcm-dpc/COVID-19
 banner "Merging pcm-dpc/COVID-19"
