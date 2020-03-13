@@ -1,19 +1,15 @@
 #!/bin/bash -e
 
-function banner {
-  echo
-  echo --------------------------------------------------------
-  echo $1
-  echo --------------------------------------------------------
-  echo
-}
-
 function fail {
   echo $1
   exit 1
 }
 
 cd `dirname $0`
+
+./common
+
+./check_submodule.sh
 
 # Merge pcm-dpc/COVID-19
 banner "Merging pcm-dpc/COVID-19"
