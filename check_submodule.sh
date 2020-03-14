@@ -1,8 +1,9 @@
 #!/bin/bash -e
 
 if [ $# -lt 1 ]; then
-  echo "Usage: $0 <yyyymmdd>"
-  exit 2
+  d=`date +%Y%m%d`
+else
+  d=$1
 fi
 
 cd `dirname $0`
@@ -17,7 +18,7 @@ git submodule init
 git pull --recurse-submodules
 git submodule update --recursive --remote
 
-if [ -f COVID-19/dati-regioni/dpc-covid19-ita-regioni-$1.csv ]; then
+if [ -f COVID-19/dati-regioni/dpc-covid19-ita-regioni-$d.csv ]; then
   echo "today's data available"
   exit 0
 elif [[ `git status --porcelain` ]]; then
