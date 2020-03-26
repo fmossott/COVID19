@@ -10,6 +10,8 @@ if [ ! -d $TGT_DIR ]; then
 fi
 
 banner "Elaborating Regions data"
+python3 pyscript/regiondata.py
 
-python3 pyscript/regiondata.py -d $home
+banner "Elaborating Provinces data"
+python3 pyscript/provincedata.py
 

@@ -4,17 +4,10 @@
 import pandas as pd
 import glob
 import argparse
+import os
 
 # %%
-parser = argparse.ArgumentParser(description='Merge and elaborate regions files')
-parser.add_argument('--cwd','-d', metavar='homedir', required=True, help='home directory')
-
-args = parser.parse_args()
-
-
-# %%
-home=args.cwd
-
+home=os.path.dirname(__file__)+"/../"
 
 # %%
 df = pd.read_csv(home+'/COVID-19/dati-regioni/dpc-covid19-ita-regioni.csv')
@@ -114,6 +107,9 @@ merge['Previous Daily Cases'] = merge['Prev Total Cases'] - merge['Prev2 Total C
 merge['New cases in last 3 days'] = merge['Total Cases'] - merge['Prev3 Total Cases']
 merge['Test in last 3 days'] = merge['Tests'] - merge['Prev3 Tests']
 
+# %%
+merge['Date'] = merge['Date'].apply(lambda x: x.strftime('%Y-%m-%d'))
+merge['Last Update'] = merge['Last Update'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
 
 # %%
 outDF=merge[['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',     'Region code', 'ISO Code', 'Map Region', 'Population', 'Area',     'Total Cases', 'Deaths', 'Recovered', 'Tests',     'Active Cases', 'Hospitalized', 'Quarantined', 'Intensive Care',  'Other Hospitalized',     'Prev Total Cases', 'Prev Deaths', 'Prev Recovered', 'Prev Tests',     'Prev Active Cases', 'Prev Hospitalized', 'Prev Quarantined', 'Prev Intensive Care',  'Prev Other Hospitalized',     'Previous Daily Cases',     'Daily Cases', 'Daily Deaths', 'Daily Recovered', 'Daily Tests',     'Daily Active Cases', 'Daily Hospitalized', 'Daily Quarantined', 'Daily Intensive Care',  'Daily Other Hospitalized',     'New cases in last 3 days', 'Test in last 3 days',     'Last Update', 'note_it', 'note_en']]
