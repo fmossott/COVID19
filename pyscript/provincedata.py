@@ -29,6 +29,10 @@ df = df.astype({
     'Total Cases':'Int32'
     })
 
+provdata = provdata.astype({
+    'Population':'Int32'
+    })
+
 
 # %%
 df['Last Update'] = pd.to_datetime(df['data'])
