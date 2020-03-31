@@ -11,7 +11,7 @@ Monza e Brianza,MB,873935,405.41,Lombardia
 Vicenza,VI,862418,2722.53,Veneto
 Lecce,LE,795134,2799.07,Puglia
 Cosenza,CS,705753,6709.75,Calabria
-Modena,MO,705393,2688.02,Emilia Romagna
+Modena,MO,705393,2688.02,Emilia-Romagna
 Perugia,PG,656382,6337.15,Umbria
 Foggia,FG,622183,7007.54,Puglia
 Como,CO,599204,1279.04,Lombardia
@@ -20,13 +20,13 @@ Taranto,TA,576756,2467.35,Puglia
 Latina,LT,575254,2256.16,Lazio
 Pavia,PV,545888,2968.64,Lombardia
 Trento,TN,541098,6207.12,P.A. Trento
-Reggio Emilia,RE,531891,2291.26,Emilia Romagna
+Reggio Emilia,RE,531891,2291.26,Emilia-Romagna
 Bolzano,BZ,531178,7398.38,P.A. Bolzano
 Udine,UD,528791,4969.3,Friuli Venezia Giulia
 Sassari,SS,491571,7692.09,Sardegna
 Frosinone,FR,489083,3247.08,Lazio
 Ancona,AN,471228,1936.22,Marche
-Parma,PR,451631,3447.48,Emilia Romagna
+Parma,PR,451631,3447.48,Emilia-Romagna
 Agrigento,AG,434870,3052.59,Sicilia
 Trapani,TP,430492,2469.62,Sicilia
 Alessandria,AL,421284,3558.83,Piemonte
@@ -34,10 +34,10 @@ Pisa,PI,419037,2444.72,Toscana
 Avellino,AV,418306,2806.07,Campania
 Mantova,MN,412292,2341.44,Lombardia
 Siracusa,SR,399224,2124.13,Sicilia
-Forlì-Cesena,FC,394627,2378.4,Emilia Romagna
+Forlì-Cesena,FC,394627,2378.4,Emilia-Romagna
 Brindisi,BR,392975,1861.12,Puglia
 Barletta-Andria-Trani,BT,390011,1542.95,Puglia
-Ravenna,RA,389456,1859.44,Emilia Romagna
+Ravenna,RA,389456,1859.44,Emilia-Romagna
 Lucca,LU,387876,1773.22,Toscana
 Chieti,CH,385588,2599.58,Abruzzo
 Novara,NO,369018,1340.28,Piemonte
@@ -46,9 +46,9 @@ Cremona,CR,358955,1770.46,Lombardia
 Pesaro e Urbino,PU,358886,2567.78,Marche
 Catanzaro,CZ,358316,2415.45,Calabria
 Sud Sardegna,SU,350725,6530.78,Sardegna
-Ferrara,FE,345691,2635.12,Emilia Romagna
+Ferrara,FE,345691,2635.12,Emilia-Romagna
 Arezzo,AR,342654,3233.08,Toscana
-Rimini,RN,339017,864.88,Emilia Romagna
+Rimini,RN,339017,864.88,Emilia-Romagna
 Lecco,LC,337380,805.61,Lombardia
 Livorno,LI,334832,1213.71,Toscana
 Ragusa,RG,320893,1623.89,Sicilia
@@ -59,7 +59,7 @@ Pordenone,PN,312533,2275.42,Friuli Venezia Giulia
 Teramo,TE,308052,1954.38,Abruzzo
 L'Aquila,AQ,299031,5047.55,Abruzzo
 Pistoia,PT,292473,964.12,Toscana
-Piacenza,PC,287152,2585.86,Emilia Romagna
+Piacenza,PC,287152,2585.86,Emilia-Romagna
 Benevento,BN,277018,2080.44,Campania
 Savona,SV,276064,1546.29,Liguria
 Siena,SI,267197,3820.98,Toscana
@@ -99,7 +99,7 @@ Torino,TO,2256142,6829,Piemonte
 Bari,BA,1248489,3825,Puglia
 Palermo,PA,1245826,4992,Sicilia
 Catania,CT,1103917,3553,Sicilia
-Bologna,BO,1017196,3702,Emilia Romagna
+Bologna,BO,1017196,3702,Emilia-Romagna
 Firenze,FI,1012407,3515,Toscana
 Venezia,VE,852351,2461,Veneto
 Genova,GE,837427,1839,Liguria
