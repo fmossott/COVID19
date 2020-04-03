@@ -87,7 +87,10 @@ prev3['Date'] = prev3['Date']+pd.to_timedelta(3,unit='D')
 
 
 # %%
-merge=df.merge(prev, on=['Date','Region'], how="left")    .merge(prev2, on=['Date','Region'], how="left")    .merge(prev3, on=['Date','Region'], how="left")    .merge(regdata, on=['Region'], how='left')
+merge=df.merge(prev, on=['Date','Region'], how="left")\
+    .merge(prev2, on=['Date','Region'], how="left")\
+    .merge(prev3, on=['Date','Region'], how="left")\
+    .merge(regdata, on=['Region'], how='left')
 
 
 # %%
