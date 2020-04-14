@@ -40,28 +40,33 @@ df['Date'] = pd.to_datetime(df['data']).dt.floor('D')
 
 # %%
 # 	Previous Total Cases	Previous Total Deaths	Previous Total Recovered  Previous Total Tests
-prev = df[['Date','Region','Province','Total Cases']]
-prev = prev.rename(columns={'Total Cases':'Prev Total Cases'})
+prev = df[['Date','Region','Province','Total Cases']].\
+    rename(columns={'Total Cases':'Prev Total Cases'})
 prev['Date'] = prev['Date']+pd.to_timedelta(1,unit='D')
 
-prev2 = df[['Date','Region','Province','Total Cases']]
-prev2 = prev2.rename(columns={'Total Cases':'Prev2 Total Cases'})
+prev2 = df[['Date','Region','Province','Total Cases']].\
+    rename(columns={'Total Cases':'Prev2 Total Cases'})
 prev2['Date'] = prev2['Date']+pd.to_timedelta(2,unit='D')
 
-prev3 = df[['Date','Region','Province','Total Cases']]
-prev3 = prev3.rename(columns={'Total Cases':'Prev3 Total Cases'})
+prev3 = df[['Date','Region','Province','Total Cases']].\
+    rename(columns={'Total Cases':'Prev3 Total Cases'})
 prev3['Date'] = prev3['Date']+pd.to_timedelta(3,unit='D')
 
+prev7 = df[['Date','Region','Province','Total Cases']].\
+    rename(columns={'Total Cases':'Prev7 Total Cases'})
+prev7['Date'] = prev7['Date']+pd.to_timedelta(7,unit='D')
 # %%
 merge=df.merge(prev, on=['Date','Region','Province'], how="left")\
     .merge(prev2, on=['Date','Region','Province'], how="left")\
     .merge(prev3, on=['Date','Region','Province'], how="left")\
+    .merge(prev7, on=['Date','Region','Province'], how="left")\
     .merge(provdata, on=['Region','Province'], how='left')\
     .merge(regdata[['Region','Region code','Map Region']], on=['Region'], how='left')
 
 # %%
 # Daily Cases   Daily Deaths    Daily Recovered    Daily Tests  Previous Daily Cases
 merge['Daily Cases'] = merge['Total Cases'] - merge['Prev Total Cases']
+merge['Weekly Cases'] = merge['Total Cases'] - merge['Prev7 Total Cases']
 merge['Daily Cases Avg 3 days'] = ((merge['Total Cases'] - merge['Prev3 Total Cases'])/3).round().astype('Int32')
 
 # %%
@@ -71,7 +76,7 @@ merge['Last Update'] = merge['Last Update'].apply(lambda x: x.strftime('%Y-%m-%d
 # %%
 outDF=merge[['Date', 'Country', 'Region', 'Region Code', 'Map Region', \
     'Province', 'Province Abbreviation', 'Province Code', 'lat', 'long', 'Population', 'Area', \
-    'Total Cases', 'Prev Total Cases', 'Daily Cases', 'Daily Cases Avg 3 days', 'Last Update', 'note_it', 'note_en']]
+    'Total Cases', 'Prev Total Cases', 'Daily Cases', 'Weekly Cases', 'Daily Cases Avg 3 days', 'Last Update', 'note_it', 'note_en']]
 
 # %%
 outDF.to_csv(home+"/combined/provinces_ts.csv", index=False)
