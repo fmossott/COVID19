@@ -152,8 +152,6 @@ columns = ['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',\
 # 'New cases in last 3 days', 'Test in last 3 days',\
 
 outDF=merge[columns].reindex(columns=columns)
-#    'Prev Total Cases', 'Previous Daily Cases',\
-
 
 # %%
 outDF.to_csv(home+"/combined/regions_ts.csv", index=False)
