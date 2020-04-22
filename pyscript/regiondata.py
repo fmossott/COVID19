@@ -139,18 +139,17 @@ merge['Last Update'] = merge['Last Update'].apply(lambda x: x.strftime('%Y-%m-%d
 # %%
 columns = ['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',\
     'Region code', 'ISO Code', 'Map Region', 'Population', 'Area',\
-    'Total Cases', 'Deaths', 'Recovered', 'Tests',\
+    'Total Cases', 'Deaths', 'Recovered', 'Tests', 'Tested People',\
     'Active Cases', 'Hospitalized', 'Quarantined', 'Intensive Care',  'Other Hospitalized',\
-    'Prev Total Cases', 'Prev Deaths', 'Prev Recovered', 'Prev Tests',\
-    'Prev Active Cases', 'Prev Hospitalized', 'Prev Quarantined', 'Prev Intensive Care',  'Prev Other Hospitalized', 'Previous Daily Cases',\
-    'Daily Cases', 'Daily Deaths', 'Daily Recovered', 'Daily Tests',\
+    'Prev Total Cases', 'Previous Daily Cases',\
+    'Daily Cases', 'Daily Deaths', 'Daily Recovered', 'Daily Tests', 'Daily Tested People',\
     'Daily Active Cases', 'Daily Hospitalized', 'Daily Quarantined', 'Daily Intensive Care',  'Daily Other Hospitalized',\
-    'Weekly Cases', 'Weekly Deaths', 'Weekly Recovered', 'Weekly Tests',\
-    'Weekly Active Cases', 'Weekly Hospitalized', 'Weekly Quarantined', 'Weekly Intensive Care', 'Weekly Other Hospitalized', \
-    'New cases in last 3 days', 'Test in last 3 days',\
-	'Last Update', 'note_it', 'note_en'
-    #, 'Tested People', 'Daily Tested People', 'Weekly Tested People'
-    ]
+    'Weekly Cases', 'Weekly Deaths', 'Weekly Recovered', 'Weekly Tests', 'Weekly Tested People',\
+    'Weekly Active Cases', 'Weekly Hospitalized', 'Weekly Quarantined', 'Weekly Intensive Care', 'Weekly Other Hospitalized',\
+	'Last Update', 'note_it', 'note_en']
+# 'Prev Deaths', 'Prev Recovered', 'Prev Tests',\
+# 'Prev Active Cases', 'Prev Hospitalized', 'Prev Quarantined', 'Prev Intensive Care',  'Prev Other Hospitalized', 
+# 'New cases in last 3 days', 'Test in last 3 days',\
 
 outDF=merge[columns].reindex(columns=columns)
 #    'Prev Total Cases', 'Previous Daily Cases',\
