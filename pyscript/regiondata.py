@@ -40,7 +40,8 @@ df = df.rename(columns={
     'dimessi_guariti': 'Recovered',
     'deceduti': 'Deaths',
     'totale_casi': 'Total Cases',
-    'tamponi': 'Tests'
+    'tamponi': 'Tests',
+    'casi_testati': 'Tested People'
     })
 
 df = df.astype({
@@ -53,7 +54,8 @@ df = df.astype({
     'Recovered':'Int32',
     'Deaths':'Int32',
     'Total Cases':'Int32',
-    'Tests':'Int32'
+    'Tests':'Int32',
+    'Tested People':'Int32'
     })
 
 
@@ -67,36 +69,32 @@ df.dtypes
 
 
 # %%
-# 	Previous Total Cases	Previous Total Deaths	Previous Total Recovered  Previous Total Tests
-prev = df[['Date','Region','Total Cases','Deaths','Recovered','Tests','Active Cases', 'Hospitalized', 'Quarantined', 'Intensive Care',  'Other Hospitalized']]
+prev = df[['Date', 'Region', 'Total Cases', 'Deaths', 'Recovered', 'Tests', 'Active Cases',\
+    'Hospitalized', 'Quarantined', 'Intensive Care', 'Other Hospitalized', 'Tested People']]
 
-prev = prev.rename(columns={'Total Cases':'Prev Total Cases', 'Deaths':'Prev Deaths', 'Recovered':'Prev Recovered', 'Tests':'Prev Tests',     'Active Cases':'Prev Active Cases', 'Hospitalized':'Prev Hospitalized', 'Quarantined':'Prev Quarantined',     'Intensive Care':'Prev Intensive Care',  'Other Hospitalized':'Prev Other Hospitalized'})
+prev = prev.rename(columns={'Total Cases':'Prev Total Cases', 'Deaths':'Prev Deaths', 'Recovered':'Prev Recovered', 'Tests':'Prev Tests',\
+    'Active Cases':'Prev Active Cases', 'Hospitalized':'Prev Hospitalized', 'Quarantined':'Prev Quarantined',\
+    'Intensive Care':'Prev Intensive Care', 'Other Hospitalized':'Prev Other Hospitalized', 'Tested People':'Prev Tested People'})
 prev['Date'] = prev['Date']+pd.to_timedelta(1,unit='D')
-
 
 # %%
 prev2 = df[['Date','Region','Total Cases','Tests']]
 prev2 = prev2.rename(columns={'Total Cases':'Prev2 Total Cases', 'Tests':'Prev2 Tests'})
 prev2['Date'] = prev2['Date']+pd.to_timedelta(2,unit='D')
 
-# %%
-prev3 = df[['Date','Region','Total Cases','Tests']]
-prev3 = prev3.rename(columns={'Total Cases':'Prev3 Total Cases', 'Tests':'Prev3 Tests'})
-prev3['Date'] = prev3['Date']+pd.to_timedelta(3,unit='D')
 
 # %%
-prev7 = df[['Date','Region','Total Cases','Deaths','Recovered','Tests','Active Cases', 'Hospitalized', 'Quarantined', 'Intensive Care',  'Other Hospitalized']]
+prev7 = df[['Date','Region','Total Cases','Deaths','Recovered','Tests','Active Cases', 'Hospitalized', 'Quarantined', 'Intensive Care', 'Other Hospitalized', 'Tested People']]
 
 prev7 = prev7.rename(columns={\
     'Total Cases':'Prev7 Total Cases', 'Deaths':'Prev7 Deaths', 'Recovered':'Prev7 Recovered', 'Tests':'Prev7 Tests',\
     'Active Cases':'Prev7 Active Cases', 'Hospitalized':'Prev7 Hospitalized', 'Quarantined':'Prev7 Quarantined',\
-    'Intensive Care':'Prev7 Intensive Care',  'Other Hospitalized':'Prev7 Other Hospitalized'})
+    'Intensive Care':'Prev7 Intensive Care',  'Other Hospitalized':'Prev7 Other Hospitalized', 'Tested People':'Prev7 Tested People'})
 prev7['Date'] = prev7['Date']+pd.to_timedelta(7,unit='D')
 
 # %%
 merge=df.merge(prev, on=['Date','Region'], how="left")\
     .merge(prev2, on=['Date','Region'], how="left")\
-    .merge(prev3, on=['Date','Region'], how="left")\
     .merge(prev7, on=['Date','Region'], how="left")\
     .merge(regdata, on=['Region'], how='left')
 
@@ -110,6 +108,7 @@ merge['Daily Hospitalized'] = merge['Hospitalized'] - merge['Prev Hospitalized']
 merge['Daily Quarantined'] = merge['Quarantined'] - merge['Prev Quarantined']
 merge['Daily Intensive Care'] = merge['Intensive Care'] - merge['Prev Intensive Care']
 merge['Daily Other Hospitalized'] = merge['Other Hospitalized'] - merge['Prev Other Hospitalized']
+merge['Daily Tested People'] = merge['Tested People'] - merge['Prev Tested People']
 
 merge['Previous Daily Cases'] = merge['Prev Total Cases'] - merge['Prev2 Total Cases']
 
@@ -122,10 +121,7 @@ merge['Weekly Hospitalized'] = merge['Hospitalized'] - merge['Prev7 Hospitalized
 merge['Weekly Quarantined'] = merge['Quarantined'] - merge['Prev7 Quarantined']
 merge['Weekly Intensive Care'] = merge['Intensive Care'] - merge['Prev7 Intensive Care']
 merge['Weekly Other Hospitalized'] = merge['Other Hospitalized'] - merge['Prev7 Other Hospitalized']
-
-# New cases in last 3 days  Test in last 3 days
-merge['New cases in last 3 days'] = merge['Total Cases'] - merge['Prev3 Total Cases']
-merge['Test in last 3 days'] = merge['Tests'] - merge['Prev3 Tests']
+merge['Weekly Tested People'] = merge['Tested People'] - merge['Prev7 Tested People']
 
 # %%
 merge['Date'] = merge['Date'].apply(lambda x: x.strftime('%Y-%m-%d'))
@@ -135,15 +131,15 @@ merge['Last Update'] = merge['Last Update'].apply(lambda x: x.strftime('%Y-%m-%d
 outDF=merge[['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',\
     'Region code', 'ISO Code', 'Map Region', 'Population', 'Area',\
     'Total Cases', 'Deaths', 'Recovered', 'Tests',\
-    'Active Cases', 'Hospitalized', 'Quarantined', 'Intensive Care',  'Other Hospitalized',
-    'Prev Total Cases', 'Prev Deaths', 'Prev Recovered', 'Prev Tests',\
-    'Prev Active Cases', 'Prev Hospitalized', 'Prev Quarantined', 'Prev Intensive Care',  'Prev Other Hospitalized', 'Previous Daily Cases',\
+    'Active Cases', 'Hospitalized', 'Quarantined', 'Intensive Care',  'Other Hospitalized', 'Tested People',\
+    'Prev Total Cases', 'Previous Daily Cases',\
     'Daily Cases', 'Daily Deaths', 'Daily Recovered', 'Daily Tests',\
-    'Daily Active Cases', 'Daily Hospitalized', 'Daily Quarantined', 'Daily Intensive Care',  'Daily Other Hospitalized',\
+    'Daily Active Cases', 'Daily Hospitalized', 'Daily Quarantined', 'Daily Intensive Care',  'Daily Other Hospitalized', 'Daily Tested People',\
     'Weekly Cases', 'Weekly Deaths', 'Weekly Recovered', 'Weekly Tests',\
-    'Weekly Active Cases', 'Weekly Hospitalized', 'Weekly Quarantined', 'Weekly Intensive Care',  'Weekly Other Hospitalized',\
-    'New cases in last 3 days', 'Test in last 3 days',\
+    'Weekly Active Cases', 'Weekly Hospitalized', 'Weekly Quarantined', 'Weekly Intensive Care', 'Weekly Other Hospitalized', 'Weekly Tested People',\
     'Last Update', 'note_it', 'note_en']]
+#    'Prev Total Cases', 'Prev Deaths', 'Prev Recovered', 'Prev Tests',\
+#    'Prev Active Cases', 'Prev Hospitalized', 'Prev Quarantined', 'Prev Intensive Care',  'Prev Other Hospitalized', 'Previous Daily Cases',\
 
 
 # %%
