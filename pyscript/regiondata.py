@@ -82,6 +82,10 @@ prev2 = df[['Date','Region','Total Cases','Tests']]
 prev2 = prev2.rename(columns={'Total Cases':'Prev2 Total Cases', 'Tests':'Prev2 Tests'})
 prev2['Date'] = prev2['Date']+pd.to_timedelta(2,unit='D')
 
+# %%
+prev3 = df[['Date','Region','Total Cases','Tests']]
+prev3 = prev3.rename(columns={'Total Cases':'Prev3 Total Cases', 'Tests':'Prev3 Tests'})
+prev3['Date'] = prev3['Date']+pd.to_timedelta(3,unit='D')
 
 # %%
 prev7 = df[['Date','Region','Total Cases','Deaths','Recovered','Tests','Active Cases', 'Hospitalized', 'Quarantined', 'Intensive Care', 'Other Hospitalized', 'Tested People']]
@@ -95,6 +99,7 @@ prev7['Date'] = prev7['Date']+pd.to_timedelta(7,unit='D')
 # %%
 merge=df.merge(prev, on=['Date','Region'], how="left")\
     .merge(prev2, on=['Date','Region'], how="left")\
+    .merge(prev3, on=['Date','Region'], how="left")\
     .merge(prev7, on=['Date','Region'], how="left")\
     .merge(regdata, on=['Region'], how='left')
 
@@ -123,22 +128,29 @@ merge['Weekly Intensive Care'] = merge['Intensive Care'] - merge['Prev7 Intensiv
 merge['Weekly Other Hospitalized'] = merge['Other Hospitalized'] - merge['Prev7 Other Hospitalized']
 merge['Weekly Tested People'] = merge['Tested People'] - merge['Prev7 Tested People']
 
+# New cases in last 3 days  Test in last 3 days
+merge['New cases in last 3 days'] = merge['Total Cases'] - merge['Prev3 Total Cases']
+merge['Test in last 3 days'] = merge['Tests'] - merge['Prev3 Tests']
+
 # %%
 merge['Date'] = merge['Date'].apply(lambda x: x.strftime('%Y-%m-%d'))
 merge['Last Update'] = merge['Last Update'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
 
 # %%
-outDF=merge[['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',\
+columns = ['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',\
     'Region code', 'ISO Code', 'Map Region', 'Population', 'Area',\
     'Total Cases', 'Deaths', 'Recovered', 'Tests',\
     'Active Cases', 'Hospitalized', 'Quarantined', 'Intensive Care',  'Other Hospitalized',\
     'Prev Total Cases', 'Prev Deaths', 'Prev Recovered', 'Prev Tests',\
     'Prev Active Cases', 'Prev Hospitalized', 'Prev Quarantined', 'Prev Intensive Care',  'Prev Other Hospitalized', 'Previous Daily Cases',\
     'Daily Cases', 'Daily Deaths', 'Daily Recovered', 'Daily Tests',\
-    'Daily Active Cases', 'Daily Hospitalized', 'Daily Quarantined', 'Daily Intensive Care',  'Daily Other Hospitalized', 'Daily Tested People',\
+    'Daily Active Cases', 'Daily Hospitalized', 'Daily Quarantined', 'Daily Intensive Care',  'Daily Other Hospitalized',\
     'Weekly Cases', 'Weekly Deaths', 'Weekly Recovered', 'Weekly Tests',\
     'Weekly Active Cases', 'Weekly Hospitalized', 'Weekly Quarantined', 'Weekly Intensive Care', 'Weekly Other Hospitalized', \
-    'Last Update', 'note_it', 'note_en', 'Tested People', 'Weekly Tested People']]
+    'New cases in last 3 days', 'Test in last 3 days',\
+	'Last Update', 'note_it', 'note_en', 'Tested People', 'Daily Tested People', 'Weekly Tested People']
+
+outDF=merge[columns].reindex(columns=columns)
 #    'Prev Total Cases', 'Previous Daily Cases',\
 
 
