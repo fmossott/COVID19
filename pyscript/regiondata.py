@@ -148,7 +148,9 @@ columns = ['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',\
     'Weekly Cases', 'Weekly Deaths', 'Weekly Recovered', 'Weekly Tests',\
     'Weekly Active Cases', 'Weekly Hospitalized', 'Weekly Quarantined', 'Weekly Intensive Care', 'Weekly Other Hospitalized', \
     'New cases in last 3 days', 'Test in last 3 days',\
-	'Last Update', 'note_it', 'note_en', 'Tested People', 'Daily Tested People', 'Weekly Tested People']
+	'Last Update', 'note_it', 'note_en'
+    #, 'Tested People', 'Daily Tested People', 'Weekly Tested People'
+    ]
 
 outDF=merge[columns].reindex(columns=columns)
 #    'Prev Total Cases', 'Previous Daily Cases',\
