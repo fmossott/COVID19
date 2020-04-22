@@ -132,14 +132,14 @@ outDF=merge[['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',\
     'Region code', 'ISO Code', 'Map Region', 'Population', 'Area',\
     'Total Cases', 'Deaths', 'Recovered', 'Tests',\
     'Active Cases', 'Hospitalized', 'Quarantined', 'Intensive Care',  'Other Hospitalized', 'Tested People',\
-    'Prev Total Cases', 'Previous Daily Cases',\
+    'Prev Total Cases', 'Prev Deaths', 'Prev Recovered', 'Prev Tests',\
+    'Prev Active Cases', 'Prev Hospitalized', 'Prev Quarantined', 'Prev Intensive Care',  'Prev Other Hospitalized', 'Previous Daily Cases',\
     'Daily Cases', 'Daily Deaths', 'Daily Recovered', 'Daily Tests',\
     'Daily Active Cases', 'Daily Hospitalized', 'Daily Quarantined', 'Daily Intensive Care',  'Daily Other Hospitalized', 'Daily Tested People',\
     'Weekly Cases', 'Weekly Deaths', 'Weekly Recovered', 'Weekly Tests',\
     'Weekly Active Cases', 'Weekly Hospitalized', 'Weekly Quarantined', 'Weekly Intensive Care', 'Weekly Other Hospitalized', 'Weekly Tested People',\
     'Last Update', 'note_it', 'note_en']]
-#    'Prev Total Cases', 'Prev Deaths', 'Prev Recovered', 'Prev Tests',\
-#    'Prev Active Cases', 'Prev Hospitalized', 'Prev Quarantined', 'Prev Intensive Care',  'Prev Other Hospitalized', 'Previous Daily Cases',\
+#    'Prev Total Cases', 'Previous Daily Cases',\
 
 
 # %%
