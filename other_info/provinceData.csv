@@ -7,7 +7,7 @@ Verona,VR,926497,3096.39,Veneto
 Caserta,CE,922965,2651.35,Campania
 Varese,VA,890768,1198.11,Lombardia
 Treviso,TV,887806,2479.83,Veneto
-Monza e Brianza,MB,873935,405.41,Lombardia
+Monza e della Brianza,MB,873935,405.41,Lombardia
 Vicenza,VI,862418,2722.53,Veneto
 Lecce,LE,795134,2799.07,Puglia
 Cosenza,CS,705753,6709.75,Calabria
@@ -78,7 +78,7 @@ Nuoro,NU,208550,5638.02,Sardegna
 Ascoli Piceno,AP,207179,1228.27,Marche
 Belluno,BL,202950,3610.2,Veneto
 Matera,MT,197909,3478.89,Basilicata
-Massa-Carrara,MS,194878,1154.68,Toscana
+Massa Carrara,MS,194878,1154.68,Toscana
 Sondrio,SO,181095,3195.76,Lombardia
 Biella,BI,177585,913.28,Piemonte
 Crotone,KR,174980,1735.68,Calabria
@@ -104,5 +104,5 @@ Firenze,FI,1012407,3515,Toscana
 Venezia,VE,852351,2461,Veneto
 Genova,GE,837427,1839,Liguria
 Messina,ME,622962,3247,Sicilia
-Reggio Calabria,RC,544815,3184,Calabria
+Reggio di Calabria,RC,544815,3184,Calabria
 Cagliari,CA,430372,1248,Sardegna
