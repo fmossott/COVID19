@@ -13,9 +13,12 @@ cd `dirname $0`
 banner "Merging pcm-dpc/COVID-19"
 
 git checkout master
-git submodule init
-git pull --recurse-submodules
-git submodule update --recursive --remote
+#git submodule init
+#git pull --recurse-submodules
+#git submodule update --recursive --remote
+
+git -C COVID-19 checkout master
+git -C COVID-19 pull
 
 # Combine reginonal data
 ./combine.sh
