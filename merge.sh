@@ -13,6 +13,7 @@ cd `dirname $0`
 banner "Merging pcm-dpc/COVID-19"
 
 git checkout master
+git pull
 #git submodule init
 #git pull --recurse-submodules
 #git submodule update --recursive --remote

@@ -14,9 +14,12 @@ cd `dirname $0`
 banner "Merging pcm-dpc/COVID-19"
 
 git checkout master
-git submodule init
-git pull --recurse-submodules
-git submodule update --recursive --remote
+#git submodule init
+#git pull --recurse-submodules
+#git submodule update --recursive --remote
+
+git -C COVID-19 checkout master
+git -C COVID-19 pull
 
 if [ -f COVID-19/dati-regioni/dpc-covid19-ita-regioni-$d.csv ]; then
   echo "today's data available"
