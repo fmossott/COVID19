@@ -76,7 +76,7 @@ merge['Last Update'] = merge['Last Update'].apply(lambda x: x.strftime('%Y-%m-%d
 # %%
 outDF=merge[['Date', 'Country', 'Region', 'Region Code', 'Map Region', \
     'Province', 'Province Abbreviation', 'Province Code', 'lat', 'long', 'Population', 'Area', \
-    'Total Cases', 'Prev Total Cases', 'Daily Cases', 'Weekly Cases', 'Daily Cases Avg 3 days', 'Last Update', 'note_it', 'note_en']]
+    'Total Cases', 'Prev Total Cases', 'Daily Cases', 'Weekly Cases', 'Daily Cases Avg 3 days', 'Last Update', 'note']]
 
 # %%
 outDF.to_csv(home+"/combined/provinces_ts.csv", index=False)

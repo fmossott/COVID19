@@ -146,7 +146,7 @@ columns = ['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',\
     'Daily Active Cases', 'Daily Hospitalized', 'Daily Quarantined', 'Daily Intensive Care',  'Daily Other Hospitalized',\
     'Weekly Cases', 'Weekly Deaths', 'Weekly Recovered', 'Weekly Tests', 'Weekly Tested People',\
     'Weekly Active Cases', 'Weekly Hospitalized', 'Weekly Quarantined', 'Weekly Intensive Care', 'Weekly Other Hospitalized',\
-	'Last Update', 'note_it', 'note_en']
+	'Last Update', 'note']
 # 'Prev Deaths', 'Prev Recovered', 'Prev Tests',\
 # 'Prev Active Cases', 'Prev Hospitalized', 'Prev Quarantined', 'Prev Intensive Care',  'Prev Other Hospitalized', 
 # 'New cases in last 3 days', 'Test in last 3 days',\
