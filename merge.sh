@@ -13,7 +13,9 @@ cd `dirname $0`
 banner "Merging pcm-dpc/COVID-19"
 
 git checkout master
-git pull
+if [ $1 -ne "--nopull" ]; then
+  git pull
+fi
 #git submodule init
 #git pull --recurse-submodules
 #git submodule update --recursive --remote
@@ -26,7 +28,7 @@ git -C COVID-19 pull
 
 if [[ `git status --porcelain` ]]; then
   echo Changes to commit
-  mergetime=`date -Iseconds -u` 
+  mergetime=`date -u "+%Y-%m-%dT%H:%M:%S"` 
   banner "Committing to 'Merge $mergetime'"
   git commit -a -m "Merge $mergetime"
 
