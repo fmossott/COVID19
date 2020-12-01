@@ -13,7 +13,7 @@ cd `dirname $0`
 banner "Merging pcm-dpc/COVID-19"
 
 git checkout master
-if [ $1 -ne "--nopull" ]; then
+if [ "$1" -ne "--nopull" ]; then
   git pull
 fi
 #git submodule init
