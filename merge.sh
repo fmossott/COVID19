@@ -10,7 +10,7 @@ cd `dirname $0`
 . ./common
 
 git checkout master
-if [ "$1" -ne "--nopull" ]; then
+if [ "$1" != "--nopull" ]; then
   banner "Merging project"
   git pull
 fi
@@ -18,7 +18,7 @@ fi
 # Merge pcm-dpc/COVID-19
 banner "Merging pcm-dpc/COVID-19"
 
-#git submodule init
+#git submodule update --init
 #git pull --recurse-submodules
 #git submodule update --recursive --remote
 
