@@ -154,7 +154,7 @@ columns = ['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',\
 outDF=merge[columns].reindex(columns=columns)
 
 # %%
-outDF.to_csv(home+"/combined/regions_ts.csv", index=False)
+outDF.to_csv(home+"/combined/regions_ts", index=False)
 
 
 # %%
@@ -162,5 +162,5 @@ lastDF = outDF.loc[outDF['Date'] == outDF['Date'].max()]
 
 
 # %%
-lastDF.to_csv(home+"/combined/regions_last.csv", index=False)
+lastDF.to_csv(home+"/combined/regions_last", index=False)
 

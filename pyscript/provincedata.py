@@ -79,7 +79,7 @@ outDF=merge[['Date', 'Country', 'Region', 'Region Code', 'Map Region', \
     'Total Cases', 'Prev Total Cases', 'Daily Cases', 'Weekly Cases', 'Daily Cases Avg 3 days', 'Last Update', 'note']]
 
 # %%
-outDF.to_csv(home+"/combined/provinces_ts.csv", index=False)
+outDF.to_csv(home+"/combined/provinces_ts", index=False)
 
 
 # %%
@@ -87,5 +87,5 @@ lastDF = outDF.loc[outDF['Date'] == outDF['Date'].max()]
 
 
 # %%
-lastDF.to_csv(home+"/combined/provinces_last.csv", index=False)
+lastDF.to_csv(home+"/combined/provinces_last", index=False)
 
