@@ -19,6 +19,8 @@ git checkout master
 #git submodule update --recursive --remote
 
 git -C COVID-19 checkout master
+git -C COVID-19 rm --cached -r .
+git -C COVID-19 reset --hard
 git -C COVID-19 pull
 
 if [ -f COVID-19/dati-regioni/dpc-covid19-ita-regioni-$d.csv ]; then
