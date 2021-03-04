@@ -11,6 +11,7 @@ fi
 
 # Apply patches
 for f in patches/*.patch; do
+  banner "Applying path $f"
   git -C COVID-19 apply ../$f
 done
 
