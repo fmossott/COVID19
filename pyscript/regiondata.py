@@ -44,6 +44,7 @@ df = df.rename(columns={
     'casi_testati': 'Tested People'
     })
 
+# %%
 df = df.astype({
     'Other Hospitalized':'Int32', 
     'Intensive Care':'Int32', 
@@ -71,10 +72,12 @@ df.dtypes
 # %%
 prev = df[['Date', 'Region', 'Total Cases', 'Deaths', 'Recovered', 'Tests', 'Active Cases',\
     'Hospitalized', 'Quarantined', 'Intensive Care', 'Other Hospitalized', 'Tested People']]
+# %%
 
 prev = prev.rename(columns={'Total Cases':'Prev Total Cases', 'Deaths':'Prev Deaths', 'Recovered':'Prev Recovered', 'Tests':'Prev Tests',\
     'Active Cases':'Prev Active Cases', 'Hospitalized':'Prev Hospitalized', 'Quarantined':'Prev Quarantined',\
     'Intensive Care':'Prev Intensive Care', 'Other Hospitalized':'Prev Other Hospitalized', 'Tested People':'Prev Tested People'})
+# %%
 prev['Date'] = prev['Date']+pd.to_timedelta(1,unit='D')
 
 # %%
@@ -152,6 +155,10 @@ columns = ['Date', 'Country', 'Region', 'Region Code', 'lat', 'long',\
 # 'New cases in last 3 days', 'Test in last 3 days',\
 
 outDF=merge[columns].reindex(columns=columns)
+
+# %%
+outDF.drop_duplicates(subset=['Date', 'Region'], inplace=True)
+
 
 # %%
 outDF.to_csv(home+"/combined/regions_ts", index=False)
