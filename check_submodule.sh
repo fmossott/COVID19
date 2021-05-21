@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/sh -e
 
 if [ $# -lt 1 ]; then
   d=`date +%Y%m%d`
