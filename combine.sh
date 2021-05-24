@@ -5,7 +5,10 @@ home=`dirname $0`
 . $home/common
 
 banner "Install Python prereqs"
-pip install -r $home/requirements.txt
+if [ "$PYTHONPATH" ]; then
+  PYTARGET="--target=$PYTHONPATH"
+fi
+pip install $PYTARGET -r $home/requirements.txt
 
 TGT_DIR="combined"
 if [ ! -d $TGT_DIR ]; then
