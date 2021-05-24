@@ -4,6 +4,9 @@ home=`dirname $0`
 
 . $home/common
 
+banner "Install Python prereqs"
+pip install -r $home/requirements.txt
+
 TGT_DIR="combined"
 if [ ! -d $TGT_DIR ]; then
   mkdir $TGT_DIR
