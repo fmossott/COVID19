@@ -6,7 +6,7 @@ home=`dirname $0`
 
 banner "Install Python prereqs"
 if [ "$PYTHONPATH" ]; then
-  PYTARGET="--target=$PYTHONPATH"
+  PYTARGET="--target=$PYTHONPATH --cache-dir=$PYTHONPATH/../pycache"
 fi
 pip install $PYTARGET -r $home/requirements.txt
 
