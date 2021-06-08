@@ -67,7 +67,7 @@ merge=df.merge(prev, on=['Date','Region','Province'], how="left")\
 # Daily Cases   Daily Deaths    Daily Recovered    Daily Tests  Previous Daily Cases
 merge['Daily Cases'] = merge['Total Cases'] - merge['Prev Total Cases']
 merge['Weekly Cases'] = merge['Total Cases'] - merge['Prev7 Total Cases']
-merge['Daily Cases Avg 3 days'] = ((merge['Total Cases'] - merge['Prev3 Total Cases'])/3).round().astype('Int32')
+merge['Daily Cases Avg 3 days'] = ((merge['Total Cases'] - merge['Prev3 Total Cases'])/3).astype(float).round().astype('Int32')
 
 # %%
 merge['Date'] = merge['Date'].apply(lambda x: x.strftime('%Y-%m-%d'))
