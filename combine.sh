@@ -8,7 +8,7 @@ banner "Install Python prereqs"
 if [ "$PYTHONPATH" ]; then
   PYTARGET="--target=$PYTHONPATH --cache-dir=$PYTHONPATH/../pycache"
 fi
-pip install $PYTARGET -r $home/requirements.txt
+pip3 install $PYTARGET -r $home/requirements.txt
 
 TGT_DIR="combined"
 if [ ! -d $TGT_DIR ]; then
