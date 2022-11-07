@@ -2,6 +2,7 @@
 # To add a new markdown cell, type '# %% [markdown]'
 # %%
 import pandas as pd
+from datetime import timedelta
 import glob
 import os
 
@@ -70,6 +71,9 @@ merge['Weekly Cases'] = merge['Total Cases'] - merge['Prev7 Total Cases']
 merge['Daily Cases Avg 3 days'] = ((merge['Total Cases'] - merge['Prev3 Total Cases'])/3).astype(float).round().astype('Int32')
 
 # %%
+maxDate = merge['Date'].max() - timedelta(days = 365)
+merge = merge[merge['Date'] >= maxDate]
+
 merge['Date'] = merge['Date'].apply(lambda x: x.strftime('%Y-%m-%d'))
 merge['Last Update'] = merge['Last Update'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
 
